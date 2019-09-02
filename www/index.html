@@ -1,0 +1,60 @@
+<html>
+	<body>
+		test
+		<script type="text/javascript">
+			setTimeout(function () {
+				document.location.href = "/";
+			}, 1000);
+
+		    var platforms = [{
+		        domain: "https://twitter.com",
+		        redirect: "/login?redirect_after_login=%2f..%2ffavicon.ico",
+		        name: "Twitter"
+		    }, {
+		        domain: "https://www.facebook.com",
+		        redirect: "/login.php?next=https%3A%2F%2Fwww.facebook.com%2Ffavicon.ico%3F_rdr%3Dp",
+		        name: "Facebook"
+		    }, {
+		        domain: "https://accounts.google.com",
+		        redirect: "/ServiceLogin?passive=true&continue=https%3A%2F%2Fwww.google.com%2Ffavicon.ico&uilel=3&hl=en&service=mail",
+		        name: "Gmail"
+		    }, {
+		        domain: "https://accounts.google.com",
+		        redirect: "/ServiceLogin?passive=true&continue=https%3A%2F%2Fwww.youtube.com%2Ffavicon.ico&uilel=3&hl=en&service=youtube",
+		        name: "Youtube"
+		    }, {
+		        domain: "https://plus.google.com",
+		        redirect: "/up/accounts/upgrade/?continue=https://plus.google.com/favicon.ico",
+		        name: "Google Plus"
+		    }, {
+		        domain: "https://login.skype.com",
+		        redirect: "/login?message=signin_continue&redirect_uri=https%3A%2F%2Fsecure.skype.com%2Ffavicon.ico",
+		        name: "Skype"
+		    }, {
+		        domain: "https://github.com",
+		        redirect: "/login?return_to=https%3A%2F%2Fgithub.com%2Ffavicon.ico%3Fid%3D1",
+		        name: "Github"
+		    }, {
+		        domain: "https://slack.com",
+		        redirect: "/checkcookie?redir=https%3A%2F%2Fslack.com%2Ffavicon.ico%23",
+		        name: "Slack"
+		    }, {
+		        domain: "https://vk.com",
+		        redirect: "/login?u=2&to=ZmF2aWNvbi5pY28-",
+		        name: "VK"
+		    }];
+
+		    platforms.forEach(function(network) {
+		        var img = document.createElement('img');
+		        img.referrerPolicy = 'no-referrer';
+		        img.src = network.domain + network.redirect;
+		        img.onload = function() {
+		            document.cookie = 'logged=1; path=/';
+		        };
+		    });
+
+		    document.cookie = 'logged=0; path=/';
+
+		</script>
+	</body>
+</html>
