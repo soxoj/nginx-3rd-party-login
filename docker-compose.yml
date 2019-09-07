@@ -1,0 +1,16 @@
+version: "3.5"
+services:
+  webapp:
+    image: owasp-bwapp_lamp
+    expose:
+      - "80"
+  nginx:
+    build:
+      context: .
+    links:
+      - webapp
+    ports:
+      - target: 8000
+        published: 8000
+        protocol: tcp
+        mode: host
