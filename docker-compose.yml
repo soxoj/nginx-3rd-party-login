@@ -1,7 +1,7 @@
 version: "3.5"
 services:
   webapp:
-    image: owasp-bwapp_lamp
+    image: vulnerables/web-dvwa
     expose:
       - "80"
   nginx:
